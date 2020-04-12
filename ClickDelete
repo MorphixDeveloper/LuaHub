@@ -1,0 +1,9 @@
+--Click delete by morphix!
+--Press LefCtrl and click to object
+local Player = Game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.Button1Down:Connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+if not Mouse.Target then return end
+Mouse.Target:remove()
+end)
