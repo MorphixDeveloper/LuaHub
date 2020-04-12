@@ -1,0 +1,18 @@
+local Players = game:GetService("Players") 
+local localPlayer = Players.LocalPlayer
+local backpack = localPlayer:WaitForChild("Backpack") 
+local tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.CanBeDropped = false 
+tool.Parent = backpack
+tool.Name = "DeleteTool" 
+tool.Equipped:Connect(function(mouse)
+mouse.Button1Down:Connect(function()
+if mouse.Target and mouse.Target.Parent then
+local selectionBox = Instance.new("SelectionBox")
+selectionBox.Adornee = mouse.Target
+selectionBox.Color3 = Color3.new(1,0,0)
+selectionBox.Parent = mouse.Target
+end
+end)
+end)
